@@ -5,7 +5,7 @@ async function getLocation(loc) {
 }
 
 async function getWeatherData() {
-    var searchLocation = document.querySelector('#location').value;
+    try {var searchLocation = document.querySelector('#location').value;
     const locationData = await getLocation(searchLocation);
     const latitude = locationData[0].lat;
     const longitutde = locationData[0].lon;
@@ -13,24 +13,43 @@ async function getWeatherData() {
     const weatherData = responseWeather.json();
     console.log(weatherData);
     return weatherData;
+    } catch(error) {
+        document.querySelector('.place').textContent = 'Oops, location not found'
+    }
+}
+
+const loader = document.querySelector('.loading');
+function loadingWeather() {
+    loader.classList.add('display');
+    setTimeout(() => {
+        loader.classList.remove('display');
+    }, 5000);
+}
+function hideLoading() {
+    loader.classList.remove('display');
+}
+
+function tempKtoC(k) {
+    return Math.round(k-273.1) + ' °C';
+}
+function tempKtoF(k) {
+    return Math.round((k - 273.1)*9/5 + 32) + ' °F';
 }
 
 function displayWeather() {
-document.querySelector('.place').textContent = document.querySelector('#location').value;
-document.querySelector('.today').textContent = new Date();
+loadingWeather();
 
 getWeatherData().then (weatherInfo => {
-    document.querySelector('.temp').textContent = weatherInfo.main.temp;
+    hideLoading();
+    document.querySelector('.place').textContent = weatherInfo.name;
+    document.querySelector('.today').textContent = new Date().toDateString();
+    document.querySelector('.temp').textContent = tempKtoF(weatherInfo.main.temp);
     document.querySelector('.weather').textContent = weatherInfo.weather[0].description;
-    document.querySelector('.hl').textContent = weatherInfo.main.temp_min + ' - ' + weatherInfo.main.temp_max;
-    document.querySelector('.wind').textContent = weatherInfo.wind.speed;
+    document.querySelector('.hl').textContent = tempKtoF(weatherInfo.main.temp_min) + ' - ' + tempKtoF(weatherInfo.main.temp_max);
+    document.querySelector('.wind').textContent = weatherInfo.wind.speed + 'm/s';
 })
 
 document.querySelector('#location').value = '';
-}
-
-function loadingWeather() {
-
 }
 
 const searchBtn = document.querySelector('#searchBtn');
