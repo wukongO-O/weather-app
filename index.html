@@ -10,13 +10,29 @@
 </head>
 <body>
     <div class="loading"></div>
-    <p class="place"></p>
-    <p class="weather"></p>
-    <div class="weatherIcon"></div>
-    <p class="hl"></p>
-    <p class="temp"></p>
-    <p class="today"></p>
-    <p class="wind"></p>
-    <input type="search" id="location" placeholder="Search location name"> <button id="searchBtn">Go</button>
+    <div class="WeatherNow">
+        <p class="place"></p>
+        <p class="weather"></p>
+        <div class="weatherIcon"></div>
+        <p class="temp now"></p>
+        <div class="feel">
+            <div class="feelIcon"></div>
+            <p class="temp feel"></p>
+        </div>        
+        <div class="hl">
+            <div class="minTemp"></div>
+            <div class="temp l"></div> 
+            <div class="maxTemp"></div>
+            <div class="temp h"></div>
+        </div>
+        <div class="today">
+            <div class="tDate"></div>
+            <div class="tNow"></div>
+        </div>
+        <p class="wind"></p>
+        <input type="search" id="location" placeholder="Search location name"> <button id="searchBtn">Go</button>
+        <button class="convertTemp">Display °C</button>
+        <div class="err"></div>
+    </div>
 </body>
 </html>
