@@ -6,31 +6,20 @@
   border-radius: 100%;
   margin: auto;
   display: none;
-  -webkit-animation: spin 1s infinite linear;
-          animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
 }
-
 .loading.display {
   display: block;
 }
-
-@-webkit-keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes spin {
   from {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
   }
 }
+
 body {
   background-image: url(./imgs/clouds.jpg);
   background-size: cover;
@@ -40,46 +29,37 @@ body {
   text-align: center;
   font-family: sans-serif;
 }
-
 .place, .temp.now {
   font-size: 35pt;
 }
-
 .weather {
   font-size: 35pt;
 }
-
 .feel, .hl, .today {
   font-size: 20pt;
 }
-
 .weatherIcon img {
   width: 8rem;
 }
-
 .feelIcon img {
   width: 2rem;
   position: relative;
   top: 0.3rem;
 }
-
 .feel {
   display: inline-flex;
   align-items: baseline;
   gap: 2rem;
 }
-
 .hl {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
 }
-
 .maxTemp {
   margin-left: 2rem;
 }
-
 .today {
   display: flex;
   justify-content: center;
@@ -89,9 +69,8 @@ body {
 .searchW {
   position: absolute;
   top: 45rem;
-  left: 40%;
+  left:40%;
 }
-
 input {
   width: 20rem;
   height: 2rem;
@@ -101,28 +80,15 @@ input {
   background-color: #575454;
   border: none;
 }
-
 input:focus {
   color: peachpuff;
   font-size: 16pt;
   outline: none;
 }
-
-input::-moz-placeholder {
-  color: peachpuff;
-  font-size: 16pt;
-}
-
-input:-ms-input-placeholder {
-  color: peachpuff;
-  font-size: 16pt;
-}
-
 input::placeholder {
   color: peachpuff;
   font-size: 16pt;
 }
-
 #searchBtn {
   position: relative;
   right: 3rem;
@@ -133,7 +99,6 @@ input::placeholder {
   background-color: peachpuff;
   border: none;
 }
-
 #searchBtn svg {
   stroke: white;
-}/*# sourceMappingURL=styles.css.map */
+}

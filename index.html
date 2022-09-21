@@ -12,9 +12,13 @@
     <div class="loading"></div>
     <div class="WeatherNow">
         <p class="place"></p>
-        <p class="weather"></p>
         <div class="weatherIcon"></div>
+        <p class="weather"></p>
         <p class="temp now"></p>
+        <div class="today">
+            <div class="tDate"></div>
+            <div class="tNow"></div>
+        </div>
         <div class="feel">
             <div class="feelIcon"></div>
             <p class="temp feel"></p>
@@ -25,12 +29,9 @@
             <div class="maxTemp"></div>
             <div class="temp h"></div>
         </div>
-        <div class="today">
-            <div class="tDate"></div>
-            <div class="tNow"></div>
+        <div class="searchW">
+            <input type="search" id="location" placeholder="  Search location name"> <button id="searchBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
         </div>
-        <p class="wind"></p>
-        <input type="search" id="location" placeholder="Search location name"> <button id="searchBtn">Go</button>
         <button class="convertTemp">Display °C</button>
         <div class="err"></div>
     </div>
