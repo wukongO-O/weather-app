@@ -1,11 +1,8 @@
-//need to fix: - between min&max; 
+//need to fix: - clear error msg after another good search + default display
 
-async function getWeatherData() {
-    const searchLocation = document.querySelector('#location').value;
-    const responseWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&appid=2d02b7a50b9aefda383eb9a9a9b88f62`, {mode:'cors'});
-    const weatherData = responseWeather.json();
-    console.log(weatherData);
-    return weatherData;
+async function getWeatherData(locationX) {
+    const responseWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationX}&appid=2d02b7a50b9aefda383eb9a9a9b88f62`, {mode:'cors'});
+    return responseWeather.json();
 }
 
 const loader = document.querySelector('.loading');
@@ -49,7 +46,7 @@ function showCurrentWeather(wData) {
     weatherLogo(wData);
     document.querySelector('.temp.now').textContent = tempKtoF(wData.main.temp);
     document.querySelector('.feelIcon').innerHTML = `
-    <img src="./imgs/thermometer.svg"> Feels like
+    <img src="./imgs/thermometer.svg"> Feels like:
     `;
     document.querySelector('.temp.feel').textContent = tempKtoF(wData.main.feels_like);
     document.querySelector('.minTemp').textContent = 'Low: ';
@@ -58,20 +55,18 @@ function showCurrentWeather(wData) {
     document.querySelector('.h').textContent = tempKtoF(wData.main.temp_max);
     document.querySelector('.tDate').textContent = new Date().toDateString();
     document.querySelector('.tNow').textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    //document.querySelector('.wind').textContent = weatherInfo.wind.speed + 'm/s';
 }
 
-function displayWeather() {
+function displayWeather(searchLocation) {
     loadingWeather();
-
-    getWeatherData()
+    searchLocation = document.querySelector('#location').value;
+    getWeatherData(searchLocation)
         .then (weatherInfo => {
         hideLoading();
         showCurrentWeather(weatherInfo);
         }).catch(() => {
             document.querySelector('.err').textContent = 'Oops, location not found';
         })
-
     document.querySelector('#location').value = '';
 }
     
@@ -109,3 +104,9 @@ convertTemp.addEventListener('click', () => {
         return counter = 0;
     }; 
 });
+
+getWeatherData('New York')
+        .then (weatherInfo => {
+        hideLoading();
+        showCurrentWeather(weatherInfo);
+        });
