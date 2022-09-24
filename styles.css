@@ -40,9 +40,7 @@
 }
 body {
   background-image: url(./imgs/leaves.jpg);
-  background-size: auto 100vh;
-  overflow: hidden;
-  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
 }
 
 .WeatherNow {
@@ -200,11 +198,6 @@ input::placeholder {
   stroke: #016121;
 }
 
-.err {
-    font-size: 20pt;
-    margin: 1rem;
-}
-
 .footer {
   position: fixed;
   left: 0;
@@ -224,10 +217,8 @@ svg.feather.feather-github {
   top: 6px;
 }
 
+/*
 html, body {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
-}
-
-
-/*# sourceMappingURL=styles.css.map */
+} *//*# sourceMappingURL=styles.css.map */
