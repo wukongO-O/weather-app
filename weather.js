@@ -66,6 +66,7 @@ function displayWeather(searchLocation) {
         showCurrentWeather(weatherInfo);
         }).catch(() => {
             document.querySelector('.err').textContent = 'Oops, location not found';
+            document.querySelector('.place').textContent = 'New York';
         })
     document.querySelector('#location').value = '';
 }
