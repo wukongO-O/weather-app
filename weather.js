@@ -1,5 +1,3 @@
-//need to fix: - clear error msg after another good search + default display
-
 async function getWeatherData(locationX) {
     const responseWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationX}&appid=2d02b7a50b9aefda383eb9a9a9b88f62`, {mode:'cors'});
     return responseWeather.json();
@@ -22,6 +20,7 @@ function tempKtoC(k) {
 function tempKtoF(k) {
     return Math.round((k - 273.1)*9/5 + 32) + ' °F';
 }
+
 function weatherLogo(wData) {
     const weatherIcon = document.querySelector('.weatherIcon');
     if(wData.weather[0].main === 'Clouds') {
