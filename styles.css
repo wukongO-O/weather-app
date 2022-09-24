@@ -48,22 +48,24 @@ body {
   font-family: boogalooregular;
   color: white;
   margin-top: 15rem;
+  display: grid;
+  justify-content: center;
 }
 
 .mainWeather {
   display: flex;
   justify-content: center;
-  gap: 60px;
-  align-content: end;
+  gap: 1rem;
 }
 
 p.weather {
-  grid-column: 2/3;
   place-self: center;
+  position: relative;
+  left: 1rem;
 }
 
 .weather, .temp.now {
-  font-size: 3rem;
+  font-size: 4rem;
   margin: 0.6rem;
 }
 
@@ -103,8 +105,7 @@ p.weather {
 
 .temps {
   display: flex;
-  justify-content: center;
-  gap: 25px;
+  gap: 30px;
 }
 
 p.temp.now {
@@ -132,7 +133,6 @@ button.convertTemp {
 
 .timeNPlace {
   display: flex;
-  /* place-content: center; */
   gap: 20px;
   justify-content: center;
   align-items: center;
@@ -215,10 +215,4 @@ svg.feather.feather-github {
   stroke: #016121;
   position: relative;
   top: 6px;
-}
-
-/*
-html, body {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-} *//*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */

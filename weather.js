@@ -53,12 +53,14 @@ function showCurrentWeather(wData) {
     document.querySelector('.l').textContent = tempKtoF(wData.main.temp_min);
     document.querySelector('.maxTemp').textContent = 'High: ';
     document.querySelector('.h').textContent = tempKtoF(wData.main.temp_max);
+    document.querySelector('.convertTemp').textContent = 'Display °C';
     document.querySelector('.tDate').textContent = new Date().toDateString();
     document.querySelector('.tNow').textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
 function displayWeather(searchLocation) {
     loadingWeather();
+    document.querySelector('.err').textContent = '';
     searchLocation = document.querySelector('#location').value;
     getWeatherData(searchLocation)
         .then (weatherInfo => {
